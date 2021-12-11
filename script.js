@@ -1,5 +1,5 @@
 const pokemonContainer = document.getElementById("pokemon-container");
-const pokemonCount = 150;
+const pokemonCount = 100;
 
 const colors = 
 {
@@ -52,7 +52,9 @@ const createPokemon = (pokemon) =>
 
     const pokemonInnerHTML = `
         <div class="img-container">
-            <img src="sprites/official-artwork/${pokemon.id}.png" alt="">
+            <div class="img-size">
+                <img src="sprites/official-artwork/${pokemon.id}.png" alt="">
+            </div>
         </div>
 
         <div class="pokemon-info">

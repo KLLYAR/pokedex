@@ -62,16 +62,26 @@ body
 
 .pokemon .img-container
 {
-    width: 150px;
-    height: 85px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0px;
-    padding: 20px;
+    padding: 0px;
 }
 
-.pokemon .img-container img
+.pokemon .img-container .img-size
+{
+    width: 180px;
+    height: 105px;
+    margin: 20px;
+    padding: 0;
+}
+
+.pokemon .img-container .img-size > img
 {
     max-width: 80%;
-    margin-top: 0px;
+    margin: 0;
 }
 
 .pokemon-info
