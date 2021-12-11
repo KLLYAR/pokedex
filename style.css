@@ -31,7 +31,20 @@ body
     max-width: 100%;
     width: 200px;
     height: 50px;
-    margin-top: 0;
+    margin: 0;
+}
+
+#container
+{
+    text-align: center;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0;
+    padding: 0;
 }
 
 .pokemon-container
@@ -44,9 +57,7 @@ body
     flex-wrap: wrap;
     align-items: space-between;
     justify-content: center;
-    max-width: 100%;
-    width: 1200px;
-    margin: 0;
+    width: 100%;
 }
 
 .pokemon
@@ -110,4 +121,46 @@ body
 .pokemon-type
 {
     text-transform: capitalize;
+}
+
+#form
+{
+    margin: 0 0 10px 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    max-width: 700px;
+    display: flex;
+    align-items: space-between;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(100, 100, 100, 0.05)
+
+}
+
+#searchBar 
+{
+    width: 80%;
+    height: auto;
+    display: block;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: rgb(38, 38, 38);
+    color: seashell;
+    border-radius: 10px 0 0 10px;
+}
+
+#form > button
+{
+    width: 20%;
+    height: auto;
+    display: block;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: rgb(51, 51, 51);
+    color: seashell;
+    border-radius: 0 10px 10px 0;
 }

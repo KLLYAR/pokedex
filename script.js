@@ -1,5 +1,6 @@
-const pokemonContainer = document.getElementById("pokemon-container");
-const pokemonCount = 100;
+const pokemonContainer = document.createElement('div');
+pokemonContainer.classList.add("pokemon-container");
+const container = document.getElementById("container");
 
 const colors = 
 {
@@ -21,12 +22,26 @@ const colors =
 
 const types = Object.keys(colors);
 
-const fetchPokemon = async () => 
+const fetchPokemons = async () => 
 {
+    removeAllChild(pokemonContainer);
+
+    const pokemonCount = 100;
+    let pokemons = [];
     for(let i = 1; i <= pokemonCount; i++)
     {
-        await getPokemon(i);
+        await getPokemon(i).then(function(data) 
+        {
+            pokemons.push(data);
+        });
     }
+    
+    pokemons.forEach(pokemon => 
+    {
+        pokemonContainer.appendChild(createPokemon(pokemon));
+    });
+
+    container.appendChild(pokemonContainer);
 }
 
 const getPokemon = async (id) =>
@@ -34,7 +49,7 @@ const getPokemon = async (id) =>
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const response = await fetch(url);
     const data = await response.json();
-    createPokemon(data);
+    return data;
 }
 
 const createPokemon = (pokemon) =>
@@ -65,7 +80,33 @@ const createPokemon = (pokemon) =>
 
     pokemonElement.innerHTML = pokemonInnerHTML;
 
-    pokemonContainer.appendChild(pokemonElement); 
+    return pokemonElement;
 }
 
-fetchPokemon();
+const addOnlyOnePokemon = async (id, pokemonContainer) => 
+{
+    removeAllChild(pokemonContainer);
+    await getPokemon(id).then(function(data) 
+    {
+        pokemonContainer.appendChild(createPokemon(data));
+    });
+    container.appendChild(pokemonContainer);
+}
+
+const removeAllChild = (parent) =>
+{
+    while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+         console.log("apagado");
+    }
+}
+
+// Search bar
+let form = document.getElementById("form");
+let searchBar = document.getElementById("searchBar");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let name = searchBar.value
+    addOnlyOnePokemon(name.toLowerCase(), pokemonContainer);
+});

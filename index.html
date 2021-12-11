@@ -9,7 +9,15 @@
 </head>
 <body>
     <div class="detail"></div>
-    <div class="pokemon-container" id="pokemon-container"></div>
+    
+    <form action="" class="pokemon-form" id="form">
+        <input type="text" id="searchBar" placeholder="Search a pokemon">
+        <button type="button" onclick="fetchPokemons()">All</button>
+    </form>
+    
+    <div id="container">
+    </div>
+
     <div class="detail"></div>
     <script src="script.js"></script>
 </body>
