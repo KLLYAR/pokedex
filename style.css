@@ -1,6 +1,6 @@
 *
 {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     padding: 5px;
 }
 
@@ -37,14 +37,16 @@ body
 .pokemon-container
 {
     background-color: rgb(230, 250, 255);
-    border-radius: 20px;
+    text-align: center;
     padding: 70px 30px 70px 30px;
+    border-radius: 20px;
     display:flex;
     flex-wrap: wrap;
     align-items: space-between;
     justify-content: center;
-    margin: 0 auto;
-    max-width: 1200px;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0;
 }
 
 .pokemon
